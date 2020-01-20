@@ -19,6 +19,12 @@
                         </p>
                     </a>
                 </li>
+
+                <li>
+                    <a href="">LogOut</a>
+                </li>
+
+                {{$slot}}
                 <!-- your navbar here -->
             </ul>
         </div>

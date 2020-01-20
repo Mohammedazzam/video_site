@@ -2,7 +2,15 @@
 
 @section("content")
 
-    @component('bake-end.layout.header',['nav_title'=>'Home Page'])
+    @component('bake-end.layout.header')
+
+        @slot('nav_title')
+            Home Page
+        @endslot
+
+
     @endcomponent
+
+    <h1>Home Page</h1>
 
 @endsection
