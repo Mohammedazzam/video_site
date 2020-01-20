@@ -10,3 +10,5 @@ class Home extends BackEndController
         return view('bake-end.home');
     }
 }
+
+
