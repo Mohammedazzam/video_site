@@ -1,5 +1,10 @@
 @extends('bake-end.layout.app')
 
+@section("title")
+    Home Page
+@endsection
+
+
 @section("content")
 
     @component('bake-end.layout.header')
