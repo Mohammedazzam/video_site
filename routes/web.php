@@ -16,4 +16,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('admin/home','BackEnd\Home@index');
+Route::namespace('BackEnd')->prefix('admin')->group(function (){
+    Route::get('/','Home@index');
+
+});
+
