@@ -23,7 +23,6 @@
     <div class="main-panel">
     <!-- Navbar -->
 
-    @include('bake-end.layout.header')
 
     <!-- End Navbar -->
         <div class="content">
@@ -45,8 +44,6 @@
 <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chartist JS -->
 <script src="/assets/js/plugins/chartist.min.js"></script>
 <!--  Notifications Plugin    -->
