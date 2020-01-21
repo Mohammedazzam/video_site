@@ -28,8 +28,21 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-primary">
-                    <h4 class="card-title ">{{$pageTitle}}</h4>
-                    <p class="card-category"> {{$pageDes}} </p>
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <h4 class="card-title ">{{$pageTitle}}</h4>
+                            <p class="card-category"> {{$pageDes}} </p>
+                        </div>
+
+                         <div class="col-md-4 text-right" >
+                             <a href="#pablo" class="btn btn-white btn-round">
+                                 Add {{$moduleName}}
+                             </a>
+                         </div>
+                    </div>
+
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -41,11 +54,11 @@
                                 <th>
                                     Name
                                 </th>
-                                
+
                                 <th>
                                     email
                                 </th>
-                                <th>
+                                <th class="text-right">
                                     control
                                 </th>
                             </tr></thead>
@@ -62,9 +75,13 @@
                                         <td>
                                             {{$row->email}}
                                         </td>
-                                        <td>
-                                            <a href="">Add</a>
-                                            <a href="">Delete</a>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Edit {{$moduleName}}" aria-describedby="tooltip814720">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Remove {{$moduleName}}">
+                                                <i class="material-icons">close</i>
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
