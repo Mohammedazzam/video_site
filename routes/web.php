@@ -18,7 +18,13 @@ Route::get('/', function () {
 
 Route::namespace('BackEnd')->prefix('admin')->group(function (){
     Route::get('/','Home@index');
+
     Route::get('users','Users@index');
+    Route::get('users/create','Users@create');
+    Route::post('users','Users@store');
+    Route::get('users/{id}','Users@edit');
+    Route::post('users/{id}','Users@update');
+    Route::get('users/delete/{id}','Users@delete');
 
 });
 
