@@ -21,6 +21,7 @@ class BackEndController extends Controller{
         $rows = $rows->paginate(10);//بعدين عملت paginate
 
         $moduleName = $this->pluralModelName();
+        $sModuleName = $this->getModelName(); //هذه خاصة أن يكون الاسم مفرد وليس جمع
         $pageTitle =  " Control " . $moduleName;
         $pageDes = "You Can add / edit / delete " . $moduleName;
 
@@ -31,7 +32,8 @@ class BackEndController extends Controller{
             'rows',
             'pageTitle',
             'moduleName',
-            'pageDes'
+            'pageDes',
+            'sModuleName'
         ));
     }
 
