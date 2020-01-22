@@ -88,6 +88,7 @@
 
                             </tbody>
                         </table>
+                        {!! $rows->links() !!} <!--هذه خاصة لل pagination -->
                     </div>
                 </div>
             </div>
