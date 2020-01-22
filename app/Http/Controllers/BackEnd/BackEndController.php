@@ -38,7 +38,17 @@ class BackEndController extends Controller{
 
 
     public function create(){
-        return view('bake-end.'.$this->getClassNameFromModel().'.create');
+
+
+        $moduleName = $this->getModelName();
+        $pageTitle =  " Create " . $moduleName;
+        $pageDes = "You Can create " . $moduleName;
+
+        return view('bake-end.'.$this->getClassNameFromModel().'.create',compact(
+            'pageTitle',
+            'moduleName',
+            'pageDes'
+        ));
 
     }
 
@@ -66,8 +76,12 @@ class BackEndController extends Controller{
         return strtolower($this->pluralModelName());
     }
 
-    protected function pluralModelName(){
-        return str_plural(class_basename($this->model));
+    protected function pluralModelName(){ //هذه  خاصة بالجمع
+        return str_plural($this->getModelName());
     }
 
+
+    protected function getModelName(){
+       return class_basename($this->model);
+    }
 }
