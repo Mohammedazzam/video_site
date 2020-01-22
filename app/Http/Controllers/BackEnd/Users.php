@@ -35,8 +35,21 @@ class Users extends BackEndController
 
     }
 
-    public function update($id){
+    public function update($id , Request $request){
+        $row = User::FindOrFail($id);
 
+        $requestArray =[
+            'name' => $request->name,
+            'email' => $request->email,
+        ];
+
+        if (request()->has('password')&& request()->get('password') !=""){
+            $requestArray =$requestArray + ['password' => Hash::make($request->password)];
+        }
+
+        dd($requestArray);
+
+        $row->update($requestArray);
     }
 
     public function delete($id){
