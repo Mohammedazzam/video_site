@@ -76,9 +76,9 @@
                                             {{$row->email}}
                                         </td>
                                         <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Edit {{$moduleName}}" aria-describedby="tooltip814720">
+                                            <a href="{{route('users.edit', ['id'=> $row->id])}}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Edit {{$moduleName}}" aria-describedby="tooltip814720">
                                                 <i class="material-icons">edit</i>
-                                            </button>
+                                            </a>
                                             <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Remove {{$moduleName}}">
                                                 <i class="material-icons">close</i>
                                             </button>
