@@ -36,7 +36,7 @@
 
                         @include('bake-end.users.forme')
 
-                        <button type="submit" class="btn btn-primary pull-right">Add {{$moduleName}}</button>
+                        <button type="submit" class="btn btn-primary pull-right">Update {{$moduleName}}</button>
                         <div class="clearfix"></div>
                     </form>
                 </div>
