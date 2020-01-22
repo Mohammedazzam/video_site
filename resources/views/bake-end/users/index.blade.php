@@ -79,9 +79,16 @@
                                             <a href="{{route('users.edit', ['id'=> $row->id])}}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Edit {{$moduleName}}" aria-describedby="tooltip814720">
                                                 <i class="material-icons">edit</i>
                                             </a>
-                                            <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Remove {{$moduleName}}">
-                                                <i class="material-icons">close</i>
-                                            </button>
+
+                                            <form action="{{route('users.destroy',['id'=> $row->id])}}" method="post">
+                                                {{csrf_field()}}
+                                                    {{method_field('delete')}}
+                                                <button type="submit" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Remove {{$moduleName}}">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+
+                                            </form>
+
                                         </td>
                                     </tr>
                                 @endforeach

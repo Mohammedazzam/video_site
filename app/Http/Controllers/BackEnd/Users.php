@@ -47,13 +47,17 @@ class Users extends BackEndController
             $requestArray =$requestArray + ['password' => Hash::make($request->password)];
         }
 
-        dd($requestArray);
+//        dd($requestArray);
 
         $row->update($requestArray);
+        return redirect()->route('users.edit',['id'=>$row->id]);
+
     }
 
-    public function delete($id){
+    public function destroy($id){
 
+        User::FindOrFail($id)->delete();
+        return redirect()->route('users.index');
     }
 }
 
