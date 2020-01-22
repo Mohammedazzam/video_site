@@ -36,7 +36,7 @@
                         </div>
 
                          <div class="col-md-4 text-right" >
-                             <a href="#pablo" class="btn btn-white btn-round">
+                             <a href="{{route('users.create')}}" class="btn btn-white btn-round">
                                  Add {{$moduleName}}
                              </a>
                          </div>

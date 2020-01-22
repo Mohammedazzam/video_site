@@ -5,6 +5,8 @@ namespace App\Http\Controllers\BackEnd;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class Users extends BackEndController
 {
@@ -19,7 +21,12 @@ class Users extends BackEndController
     }
 
     public function store(Request $request){
-        dd($request->all());
+         User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        return redirect()->route('users.index');
     }
 
     public function edit($id){
