@@ -30,7 +30,8 @@ class Users extends BackEndController
     }
 
     public function edit($id){
-        return view('bake-end.users.edit');
+        $row = User::FindOrFail($id);
+        return view('bake-end.users.edit',compact('row'));
 
     }
 
