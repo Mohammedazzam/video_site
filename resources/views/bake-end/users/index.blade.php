@@ -1,13 +1,6 @@
 @extends('bake-end.layout.app')
 
 
-@php
-    $moduleName = "Users";
-    $pageTitle = $moduleName . "Control";
-    $pageDes = "You Can add / edit / delete " . $moduleName
-@endphp
-
-
 @section("title")
     {{$pageTitle}}
 @endsection

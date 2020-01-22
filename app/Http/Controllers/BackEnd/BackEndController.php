@@ -20,10 +20,19 @@ class BackEndController extends Controller{
         $rows = $this->filter($rows); //قمت بتمرير ال rows ونتائج الفلتر
         $rows = $rows->paginate(10);//بعدين عملت paginate
 
+        $moduleName = $this->pluralModelName();
+        $pageTitle =  " Control " . $moduleName;
+        $pageDes = "You Can add / edit / delete " . $moduleName;
+
 
 //        dd($this->getClassNameFromModel()); //هيك بجيب اسم الفولدر
 
-        return view('bake-end.'.$this->getClassNameFromModel().'.index',compact('rows'));
+        return view('bake-end.'.$this->getClassNameFromModel().'.index',compact(
+            'rows',
+            'pageTitle',
+            'moduleName',
+            'pageDes'
+        ));
     }
 
 
@@ -54,7 +63,11 @@ class BackEndController extends Controller{
 
 
     protected function getClassNameFromModel(){ //هذه فانكشن خاصة للإسم وجعله ديناميكي
-        return str_plural(strtolower(class_basename($this->model)));
+        return strtolower($this->pluralModelName());
+    }
+
+    protected function pluralModelName(){
+        return str_plural(class_basename($this->model));
     }
 
 }
