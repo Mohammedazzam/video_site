@@ -17,11 +17,18 @@ class BackEndController extends Controller{
 
     public function index(){
         $rows =$this->model->paginate(10);
-
 //        dd($this->getClassNameFromModel()); //هيك بجيب اسم الفولدر
 
         return view('bake-end.'.$this->getClassNameFromModel().'.index',compact('rows'));
     }
+
+
+
+    public function create(){
+        return view('bake-end.'.$this->getClassNameFromModel().'.create');
+
+    }
+
 
     protected function getClassNameFromModel(){
         return str_plural(strtolower(class_basename($this->model)));

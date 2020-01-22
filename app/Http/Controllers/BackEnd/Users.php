@@ -18,10 +18,6 @@ class Users extends BackEndController
 
 
 
-    public function create(){
-        return view('bake-end.users.create');
-
-    }
 
     public function store(Request $request){
          User::create([
