@@ -28,11 +28,7 @@ class Users extends BackEndController
         return redirect()->route('users.index');
     }
 
-    public function edit($id){
-        $row = User::FindOrFail($id);
-        return view('bake-end.users.edit',compact('row'));
 
-    }
 
     public function update($id , Request $request){
         $row = User::FindOrFail($id);

@@ -29,6 +29,12 @@ class BackEndController extends Controller{
 
     }
 
+    public function edit($id){
+        $row = $this->model->FindOrFail($id);
+        return view('bake-end.'.$this->getClassNameFromModel().'.edit',compact('row'));
+
+    }
+
     public function destroy($id){
 
         $this->model->FindOrFail($id)->delete();
