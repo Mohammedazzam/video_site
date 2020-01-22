@@ -29,8 +29,14 @@ class BackEndController extends Controller{
 
     }
 
+    public function destroy($id){
 
-    protected function getClassNameFromModel(){
+        $this->model->FindOrFail($id)->delete();
+        return redirect()->route($this->getClassNameFromModel().'.index');
+    }
+
+
+    protected function getClassNameFromModel(){ //هذه فانكشن خاصة للإسم وجعله ديناميكي
         return str_plural(strtolower(class_basename($this->model)));
     }
 
