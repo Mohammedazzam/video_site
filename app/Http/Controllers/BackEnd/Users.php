@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackEnd;
 
 
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class Users extends BackEndController
 {
@@ -17,8 +18,8 @@ class Users extends BackEndController
 
     }
 
-    public function store($request){
-
+    public function store(Request $request){
+        dd($request->all());
     }
 
     public function edit($id){
