@@ -53,8 +53,20 @@ class BackEndController extends Controller{
     }
 
     public function edit($id){
+
         $row = $this->model->FindOrFail($id);
-        return view('bake-end.'.$this->getClassNameFromModel().'.edit',compact('row'));
+
+        $moduleName = $this->getModelName();
+        $pageTitle =  " Edit ".$moduleName;
+        $pageDes = "You Can edit " . $moduleName;
+
+
+        return view('bake-end.'.$this->getClassNameFromModel().'.edit',compact(
+            'row',
+            'pageTitle',
+            'moduleName',
+            'pageDes'
+            ));
 
     }
 
