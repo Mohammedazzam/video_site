@@ -16,8 +16,14 @@ class Users extends BackEndController
         parent::__construct($model);
     }
 
+    protected function filter($rows)
+    {
+        if (request()->has('name') && request()->get('name') != "") {
 
-
+            $rows = $rows->where('name',request()->get('name') );
+        }
+        return $rows;
+    }
 
     public function store(Request $request){
          User::create([
