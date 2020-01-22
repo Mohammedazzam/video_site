@@ -4,8 +4,8 @@ namespace App\Http\Controllers\BackEnd;
 
 
 use App\Http\Requests\BackEnd\Users\Store;
+use App\Http\Requests\BackEnd\Users\Update;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -21,23 +21,22 @@ class Users extends BackEndController
     public function store(Store $request){
         $requestArray = $request->all();
         $requestArray['password']= Hash::make($requestArray['password']);
-        User::create($requestArray); //هذه للحفظ
+        $this->model->create($requestArray); //هذه للحفظ
 
         return redirect()->route('users.index');
     }
 
 
 
-    public function update($id , Request $request){
-        $row = User::FindOrFail($id);
+    public function update($id , Update $request){
+        $row =$this->model->FindOrFail($id);
 
-        $requestArray =[
-            'name' => $request->name,
-            'email' => $request->email,
-        ];
+        $requestArray =$request->all();
 
-        if (request()->has('password')&& request()->get('password') !=""){
-            $requestArray =$requestArray + ['password' => Hash::make($request->password)];
+        if (isset($requestArray['password'])&& $requestArray ['password'] !=""){
+            $requestArray['password']= Hash::make($requestArray['password']);
+        }else{
+            unset($requestArray['password']);
         }
 
 //        dd($requestArray);
