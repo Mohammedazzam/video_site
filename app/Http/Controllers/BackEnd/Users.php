@@ -10,10 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class Users extends BackEndController
 {
-    public function index(){
-        $rows = User::paginate(10);
-        return view('bake-end.users.index',compact('rows'));
+
+    public function __construct(User $model)
+    {
+        parent::__construct($model);
     }
+
+
 
     public function create(){
         return view('bake-end.users.create');
