@@ -69,11 +69,11 @@
                                             {{$row->email}}
                                         </td>
                                         <td class="td-actions text-right">
-                                            <a href="{{route('users.edit', ['id'=> $row->id])}}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Edit {{$sModuleName}}" aria-describedby="tooltip814720">
+                                            <a href="{{route('users.edit', ['id'=> $row])}}" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Edit {{$sModuleName}}" aria-describedby="tooltip814720">
                                                 <i class="material-icons">edit</i>
                                             </a>
 
-                                            <form action="{{route('users.destroy',['id'=> $row->id])}}" method="post">
+                                            <form action="{{route('users.destroy',['id'=> $row])}}" method="post">
                                                 {{csrf_field()}}
                                                     {{method_field('delete')}}
                                                 <button type="submit" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Remove {{$sModuleName}}">
