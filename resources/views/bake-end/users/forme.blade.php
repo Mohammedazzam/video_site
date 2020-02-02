@@ -1,12 +1,16 @@
 @csrf()
 {{--{{csrf_field()}}--}}
+
+@php $input= "name"; @endphp   <!--هيك لما بغير في الفورم بغير فقط هنا في هذا ال name -->
+
+
 <div class="row">
     <div class="col-md-6">
         <div class="form-group bmd-form-group">
             <label class="bmd-label-floating">Username</label>
-            <input type="text" name="name" value="{{isset($row)? $row->name: ''}}" class="form-control @error('name') is-invalid @enderror">
+            <input type="text" name="{{$input}}" value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
 
-            @error('name')
+            @error($input)
             <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
              </span>
@@ -14,10 +18,14 @@
 
         </div>
     </div>
+
+
+    @php $input= "email"; @endphp
+
     <div class="col-md-6">
         <div class="form-group bmd-form-group">
             <label class="bmd-label-floating">Email address</label>
-            <input type="email" name="email"  value="{{isset($row)? $row->email: ''}}" class="form-control @error('email') is-invalid @enderror">
+            <input type="email" name="{{$input}}"  value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
 
             @error('email')
             <span class="invalid-feedback" role="alert">
@@ -27,12 +35,15 @@
 
         </div>
     </div>
+
+    @php $input= "password"; @endphp
+
     <div class="col-md-6">
         <div class="form-group bmd-form-group">
             <label class="bmd-label-floating">Password</label>
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror">
+            <input type="password" name="{{$input}}" class="form-control @error($input) is-invalid @enderror">
 
-            @error('password')
+            @error($input)
             <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
              </span>
