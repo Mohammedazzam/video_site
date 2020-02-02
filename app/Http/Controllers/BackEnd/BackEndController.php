@@ -48,11 +48,13 @@ class BackEndController extends Controller{
         $moduleName = $this->getModelName();
         $pageTitle =  " Create " . $moduleName;
         $pageDes = "You Can create " . $moduleName;
+        $folderName = $this->getClassNameFromModel();
 
-        return view('bake-end.'.$this->getClassNameFromModel().'.create',compact(
+        return view('bake-end.'. $folderName .'.create',compact(
             'pageTitle',
             'moduleName',
-            'pageDes'
+            'pageDes',
+            'folderName'
 
         ));
 
@@ -65,13 +67,16 @@ class BackEndController extends Controller{
         $moduleName = $this->getModelName();
         $pageTitle =  " Edit ".$moduleName;
         $pageDes = "You Can edit " . $moduleName;
+        $folderName = $this->getClassNameFromModel();
 
 
-        return view('bake-end.'.$this->getClassNameFromModel().'.edit',compact(
+
+        return view('bake-end.'. $folderName .'.edit',compact(
             'row',
             'pageTitle',
             'moduleName',
-            'pageDes'
+            'pageDes',
+            'folderName'
             ));
 
     }

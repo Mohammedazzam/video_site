@@ -22,7 +22,7 @@
         <div class="card-body">
         <form action="{{route('users.update',['id' =>$row->id])}}" method="POST">
             {{method_field('put')}}
-            @include('bake-end.users.forme')
+            @include('bake-end.'.$folderName.'.forme')
 
             <button type="submit" class="btn btn-primary pull-right">Update {{$moduleName}}</button>
             <div class="clearfix"></div>
