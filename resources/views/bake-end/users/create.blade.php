@@ -26,9 +26,9 @@
                         <p class="card-category">{{$pageDes}}</p>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('users.store')}}" method="POST">
+                        <form action="{{route($routeName.'.store')}}" method="POST">
 
-                            @include('bake-end.users.forme')
+                            @include('bake-end.'.$folderName.'.forme')
 
                             <button type="submit" class="btn btn-primary pull-right">Add {{$moduleName}}</button>
                             <div class="clearfix"></div>

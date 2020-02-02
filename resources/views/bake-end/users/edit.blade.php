@@ -20,7 +20,7 @@
 
     @component('bake-end.shared.edit', ['pageTitle' => $pageTitle, 'pageDes' => $pageDes])
         <div class="card-body">
-        <form action="{{route('users.update',['id' =>$row->id])}}" method="POST">
+        <form action="{{route($routeName.'.update',['id' =>$row])}}" method="POST">
             {{method_field('put')}}
             @include('bake-end.'.$folderName.'.forme')
 
