@@ -18,27 +18,17 @@
 
     @endcomponent
 
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header card-header-primary">
-                    <h4 class="card-title">{{$pageTitle}}</h4>
-                    <p class="card-category">{{$pageDes}}</p>
-                </div>
-                <div class="card-body">
-                    <form action="{{route('users.update',['id' =>$row->id])}}" method="POST">
-                        {{method_field('put')}}
-                        @include('bake-end.users.forme')
+    @component('bake-end.shared.edit', ['pageTitle' => $pageTitle, 'pageDes' => $pageDes])
+        <div class="card-body">
+        <form action="{{route('users.update',['id' =>$row->id])}}" method="POST">
+            {{method_field('put')}}
+            @include('bake-end.users.forme')
 
-                        <button type="submit" class="btn btn-primary pull-right">Update {{$moduleName}}</button>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-            </div>
+            <button type="submit" class="btn btn-primary pull-right">Update {{$moduleName}}</button>
+            <div class="clearfix"></div>
+        </form>
         </div>
-    </div>
-
-
+    @endcomponent
 @endsection
 
 

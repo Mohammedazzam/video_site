@@ -22,7 +22,7 @@
 
         @slot('addButton')
             <div class="col-md-4 text-right" >
-                <a href="{{route('users.create')}}" class="btn btn-white btn-round">
+                <a href="{{route($routeName.'.create')}}" class="btn btn-white btn-round">
                     Add {{$sModuleName}}
                 </a>
             </div>
