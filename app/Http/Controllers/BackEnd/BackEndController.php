@@ -22,6 +22,8 @@ class BackEndController extends Controller{
 
         $moduleName = $this->pluralModelName();
         $sModuleName = $this->getModelName(); //هذه خاصة أن يكون الاسم مفرد وليس جمع
+        $routeName = $this->getClassNameFromModel();
+
         $pageTitle =  " Control " . $moduleName;
         $pageDes = "You Can add / edit / delete " . $moduleName;
 
@@ -33,7 +35,8 @@ class BackEndController extends Controller{
             'pageTitle',
             'moduleName',
             'pageDes',
-            'sModuleName'
+            'sModuleName',
+            'routeName'
         ));
     }
 
@@ -50,6 +53,7 @@ class BackEndController extends Controller{
             'pageTitle',
             'moduleName',
             'pageDes'
+
         ));
 
     }

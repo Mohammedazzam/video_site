@@ -60,8 +60,8 @@
                         {{$row->email}}
                     </td>
                     <td class="td-actions text-right">
-                        @include('bake-end.shared.buttons.edit',['routeName' => 'users'])
-                        @include('bake-end.shared.buttons.delete',['routeName' => 'users'])
+                        @include('bake-end.shared.buttons.edit')
+                        @include('bake-end.shared.buttons.delete')
                     </td>
                 </tr>
             @endforeach
