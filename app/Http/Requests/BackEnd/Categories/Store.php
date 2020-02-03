@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\BackEnd\categories;
+namespace App\Http\Requests\BackEnd\Categories;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class store extends FormRequest
+class Store extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class store extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class store extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'max:191'],
+            'meta_keywords' => ['max:191'],
+            'meta_des' => ['max:191'],
+
         ];
     }
 }
