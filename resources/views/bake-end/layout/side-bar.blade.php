@@ -12,7 +12,7 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item ">
-                <a class="nav-link" href="javascript:void(0)">
+                <a class="nav-link" href="{{route('admin.home')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
@@ -20,8 +20,23 @@
 
             <li class="nav-item {{is_active('users')}}">
                 <a class="nav-link" href="{{route('users.index')}}">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons">person</i>
                     <p>Users</p>
+                </a>
+            </li>
+
+
+            <li class="nav-item {{is_active('categories')}}">
+                <a class="nav-link" href="{{route('categories.index')}}">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>Categories</p>
+                </a>
+            </li>
+
+            <li class="nav-item {{is_active('skills')}}">
+                <a class="nav-link" href="{{route('skills.index')}}">
+                    <i class="material-icons">content_paste</i>
+                    <p>Skills</p>
                 </a>
             </li>
 

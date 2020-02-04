@@ -5,11 +5,11 @@
 @endsection
 
 @push('css')
-    <Style>
-        a{
-            color:red !important;
-        }
-    </Style>
+    {{--<Style>--}}
+        {{--a{--}}
+            {{--color:red !important;--}}
+        {{--}--}}
+    {{--</Style>--}}
 @endpush
 
 @section("content")
@@ -23,13 +23,12 @@
 
     @endcomponent
 
-    <h1>Home Page</h1>
 
 @endsection
 
 
 @push('js')
-    <script>
-        alert("welcome")
-    </script>
+    {{--<script>--}}
+        {{--alert("welcome")--}}
+    {{--</script>--}}
 @endpush
