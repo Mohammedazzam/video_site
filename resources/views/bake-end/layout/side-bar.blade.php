@@ -40,6 +40,15 @@
                 </a>
             </li>
 
+
+            <li class="nav-item {{is_active('tags')}}">
+                <a class="nav-link" href="{{route('tags.index')}}">
+                    <i class="material-icons">content_paste</i>
+                    <p>Tags</p>
+                </a>
+            </li>
+
+
             <!-- your sidebar here -->
         </ul>
     </div>

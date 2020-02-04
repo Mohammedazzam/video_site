@@ -21,6 +21,7 @@ Route::namespace('BackEnd')->prefix('admin')->group(function (){
     Route::resource('users','Users')->except(['show']);
     Route::resource('categories','Categories')->except(['show']);
     Route::resource('skills','Skills')->except(['show']);
+    Route::resource('tags','Tags')->except(['show']);
 
 });
 
