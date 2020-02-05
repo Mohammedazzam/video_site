@@ -25,7 +25,7 @@ class Videos extends BackEndController
     public function update($id, Store $request)
     {
         $row = $this->model->FindOrFail($id);
-        $row->update($request->all());
+        $row->update($request->all() + ['user_id' =>auth()->user()->id]);
 
         return redirect()->route('videos.edit', ['id' => $row->id]);
 
