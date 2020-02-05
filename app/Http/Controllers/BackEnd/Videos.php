@@ -19,55 +19,12 @@ class Videos extends BackEndController
    }
 
 
-    public function create(){
-
-
-        $moduleName = $this->getModelName();
-        $pageTitle =  " Create " . $moduleName;
-        $pageDes = "You Can create " . $moduleName;
-        $folderName = $this->getClassNameFromModel();
-        $routeName = $folderName;
-        $categories = Category::get();
-
-
-        return view('bake-end.'. $folderName .'.create',compact(
-            'pageTitle',
-            'moduleName',
-            'pageDes',
-            'folderName',
-            'routeName',
-            'categories'
-
-        ));
-
-    }
-
-
-    public function edit($id){
-
-        $row = $this->model->FindOrFail($id);
-
-        $moduleName = $this->getModelName();
-        $pageTitle =  " Edit ".$moduleName;
-        $pageDes = "You Can edit " . $moduleName;
-        $folderName = $this->getClassNameFromModel();
-        $routeName = $folderName;
-        $categories = Category::get();
-
-
-
-        return view('bake-end.'. $folderName .'.edit',compact(
-            'row',
-            'pageTitle',
-            'moduleName',
-            'pageDes',
-            'folderName',
-            'routeName',
-            'categories'
-
-        ));
-
-    }
+   protected function append()
+   {
+       return[
+           'categories' =>Category::get()
+       ];
+   }
 
 
     public function store(Store $request)

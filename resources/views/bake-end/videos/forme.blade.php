@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Category Name</label>
+            <label class="bmd-label-floating">Video Name</label>
             <input type="text" name="{{$input}}" value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
 
             @error($input)
@@ -108,7 +108,7 @@
 
     <div class="col-md-12">
         <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Page Description</label>
+            <label class="bmd-label-floating">video Description</label>
             <textarea name="{{$input}}" cols="30" rows="5" class="form-control @error($input) is-invalid @enderror">{{isset($row)? $row->{$input}: ''}}</textarea>
 
             @error($input)

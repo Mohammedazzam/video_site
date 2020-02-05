@@ -55,6 +55,8 @@ class BackEndController extends Controller{
         $pageDes = "You Can create " . $moduleName;
         $folderName = $this->getClassNameFromModel();
         $routeName = $folderName;
+        $append = $this->append();
+
 
 
         return view('bake-end.'. $folderName .'.create',compact(
@@ -64,7 +66,7 @@ class BackEndController extends Controller{
             'folderName',
             'routeName'
 
-        ));
+        ))->with($append);
 
     }
 
@@ -77,6 +79,7 @@ class BackEndController extends Controller{
         $pageDes = "You Can edit " . $moduleName;
         $folderName = $this->getClassNameFromModel();
         $routeName = $folderName;
+        $append = $this->append();
 
 
 
@@ -87,7 +90,8 @@ class BackEndController extends Controller{
             'pageDes',
             'folderName',
             'routeName'
-            ));
+
+            ))->with($append);
 
     }
 
@@ -121,5 +125,9 @@ class BackEndController extends Controller{
 
     protected function getModelName(){
        return class_basename($this->model);
+    }
+
+    protected function append(){
+        return [];
     }
 }
