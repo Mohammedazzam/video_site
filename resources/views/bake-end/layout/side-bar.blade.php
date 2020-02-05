@@ -49,6 +49,15 @@
             </li>
 
 
+            <li class="nav-item {{is_active('pages')}}">
+                <a class="nav-link" href="{{route('pages.index')}}">
+                    <i class="material-icons">content_paste</i>
+                    <p>Pages</p>
+                </a>
+            </li>
+
+
+
             <!-- your sidebar here -->
         </ul>
     </div>
