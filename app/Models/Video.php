@@ -18,4 +18,13 @@ class Video extends Model
         'image'
     ];
 
+    //عن طريق هدول الدالتين بقدر اصل لليوزر الي عمل post والبوست الي تحت من أي category
+    public function user(){
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+
+    public function cat(){
+        return $this->belongsTo(Category::class,'cat_id');
+    }
 }

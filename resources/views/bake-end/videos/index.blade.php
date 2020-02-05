@@ -65,6 +65,18 @@
                         {{$row->name}}
                     </td>
 
+                    <td>
+                        {{$row->published}}
+                    </td>
+
+                    <td>
+                        {{$row->cat->name}}
+                    </td>
+
+                    <td>
+                        {{$row->user->name}}
+                    </td>
+
                     <td class="td-actions text-right">
                         @include('bake-end.shared.buttons.edit')
                         @include('bake-end.shared.buttons.delete')
