@@ -18,8 +18,13 @@ class BackEndController extends Controller{
     public function index(){
         $rows =$this->model;
         $rows = $this->filter($rows); //قمت بتمرير ال rows ونتائج الفلتر
-        $rows = $rows->paginate(10);//بعدين عملت paginate
 
+        $with = $this->with();
+        if (!empty($rows)){
+            $rows = $rows->with($with);
+        }
+
+        $rows = $rows->paginate(10);//بعدين عملت paginate
         $moduleName = $this->pluralModelName();
         $sModuleName = $this->getModelName(); //هذه خاصة أن يكون الاسم مفرد وليس جمع
         $routeName = $this->getClassNameFromModel();
@@ -97,6 +102,11 @@ class BackEndController extends Controller{
 
     protected function filter($rows){ //عمل فلاتر للفورم
         return $rows;
+    }
+
+
+    protected function with(){
+        return[];
     }
 
 

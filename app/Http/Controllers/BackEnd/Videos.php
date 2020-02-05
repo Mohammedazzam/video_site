@@ -14,29 +14,9 @@ class Videos extends BackEndController
         parent::__construct($model);
     }
 
-    public function index(){
-        $rows =$this->model->with('cat','user');
-        $rows = $this->filter($rows);
-        $rows = $rows->paginate(10);
-
-        $moduleName = $this->pluralModelName();
-        $sModuleName = $this->getModelName();
-        $routeName = $this->getClassNameFromModel();
-
-        $pageTitle =  " Control " . $moduleName;
-        $pageDes = "You Can add / edit / delete " . $moduleName;
-
-
-
-        return view('bake-end.'.$this->getClassNameFromModel().'.index',compact(
-            'rows',
-            'pageTitle',
-            'moduleName',
-            'pageDes',
-            'sModuleName',
-            'routeName'
-        ));
-    }
+   protected function with(){
+        return ['cat', 'user'];
+   }
 
 
     public function create(){
