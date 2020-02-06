@@ -31,16 +31,25 @@ class Videos extends BackEndController
 
     public function store(Store $request)
     {
+       $requestArray = $request->all()+['user_id' =>auth()->user()->id];//هذه للحفظ
+       $row = $this->model->create($requestArray); //هذه للحفظ
 
-        $this->model->create($request->all()+['user_id' =>auth()->user()->id]); //هذه للحفظ
+        if (isset($requestArray['skills'])&& !empty($requestArray['skills'])){
+            $row->skills()->sync($requestArray['skills']);
+        }
         return redirect()->route('videos.index');
     }
 
 
     public function update($id, Store $request)
     {
+        $requestArray = $request->all();
         $row = $this->model->FindOrFail($id);
-        $row->update($request->all());
+        $row->update($requestArray);
+
+        if (isset($requestArray['skills'])&& !empty( $requestArray['skills'])){
+            $row->skills()->sync($requestArray['skills']);
+        }
 
         return redirect()->route('videos.edit', ['id' => $row->id]);
 
