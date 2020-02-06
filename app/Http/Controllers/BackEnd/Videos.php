@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\Videos\Store;
 use App\Models\Category;
+use App\Models\Skill;
 use App\Models\Video;
 
 
@@ -22,7 +23,8 @@ class Videos extends BackEndController
    protected function append()
    {
        return[
-           'categories' =>Category::get()
+           'categories' =>Category::get(),
+           'skills' => Skill::get()
        ];
    }
 
