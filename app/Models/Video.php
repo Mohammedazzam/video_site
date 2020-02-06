@@ -27,4 +27,9 @@ class Video extends Model
     public function cat(){
         return $this->belongsTo(Category::class,'cat_id');
     }
+
+    public function skills(){
+        return $this->belongsToMany(Skill::class,'skills_video');
+
+    }
 }
