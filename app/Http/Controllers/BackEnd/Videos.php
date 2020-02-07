@@ -22,6 +22,12 @@ class Videos extends BackEndController
 
    protected function append()
    {
+
+       dd(request()->route()->parameter('video'));
+//       if(request()->route()->parameter('video')){
+//           dd('mmm');
+//       };
+
        return[
            'categories' =>Category::get(),
            'skills' => Skill::get()
