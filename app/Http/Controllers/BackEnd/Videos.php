@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\Videos\Store;
+use App\Http\Requests\Backend\Videos\Update;
 use App\Models\Category;
 use App\Models\Skill;
 use App\Models\Tag;
@@ -67,9 +68,15 @@ class Videos extends BackEndController
     }
 
 
-    public function update($id, Store $request)
+    public function update($id, Update $request)
     {
         $requestArray = $request->all();
+        if ($request->hasFile('image')){
+            $file = $request->file('image');
+            $fileName = time().str_random('10').'.'.$file->getClientOriginalExtension();
+            $file->move(public_path('uploads'),$fileName);
+            $requestArray=['image'=>$fileName]+$requestArray;
+        }
         $row = $this->model->FindOrFail($id);
         $row->update($requestArray);
 

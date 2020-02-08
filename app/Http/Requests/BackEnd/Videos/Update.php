@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend\Videos;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Store extends FormRequest
+class Update extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,7 @@ class Store extends FormRequest
             'youtube' => ['required','min:10', 'url'],
             'cat_id' => ['required','integer'],
             'published' => ['required'],
-            'image' => ['required','image']
+            'image' => ['nullable','image']
         ];
     }
 }

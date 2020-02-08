@@ -31,7 +31,8 @@
             @php $url =getYoutubeId($row->youtube) @endphp
 
             @if($url)
-                <iframe width="250"  src="https://www.youtube.com/embed/{{$url}}" frameborder="0"  allowfullscreen></iframe>
+                <iframe width="250"  src="https://www.youtube.com/embed/{{$url}}" style="margin-bottom: 20px" frameborder="0"  allowfullscreen></iframe>
+
             @endif
 
             <img src="{{url('uploads/'.$row->image)}}" width="250"> <!--لإظهار الصورة عند التعديل-->
