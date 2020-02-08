@@ -37,7 +37,7 @@ class Videos extends BackEndController
        if(request()->route()->parameter('video')){
            $array['selectedSkills'] = $this->model->find(request()->route()->parameter('video'))
                ->skills()->get()->pluck('id')->toArray();
-           dd($array['selectedSkills']);
+//           dd($array['selectedSkills']);
        };
 
        return $array;
@@ -46,7 +46,7 @@ class Videos extends BackEndController
 
     public function store(Store $request)
     {
-       $requestArray = $request->all()+['user_id' =>auth()->user()->id];//هذه للحفظ
+       $requestArray = $request->all()+ ['user_id'=>auth()->user()->id];//هذه للحفظ
        $row = $this->model->create($requestArray); //هذه للحفظ
 
         if (isset($requestArray['skills'])&& !empty($requestArray['skills'])){

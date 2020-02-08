@@ -148,7 +148,7 @@
             <label class="bmd-label-floating"> Skills </label>
             <select name="{{$input}}" class="form-control @error($input) is-invalid @enderror" multiple style="height: 100px;">
                 @foreach($skills  as $skill)
-                    <option value="{{ $skill->id }}" >{{ $skill->name }}</option>
+                    <option value="{{ $skill->id }}" {{in_array($skill->id,$selectedSkills) ? 'selected': ''}} >{{ $skill->name }}</option>
                 @endforeach
             </select>
             @error($input)
