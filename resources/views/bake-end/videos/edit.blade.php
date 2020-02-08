@@ -26,9 +26,12 @@
             <button type="submit" class="btn btn-primary pull-right">Update {{$moduleName}}</button>
             <div class="clearfix"></div>
         </form>
-        </div>
+
+        @slot('md4')
+            <iframe width="250"  src="https://www.youtube.com/embed/FkUr2hBlkVQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        @endslot
+
     @endcomponent
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/FkUr2hBlkVQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 @endsection
 
 
