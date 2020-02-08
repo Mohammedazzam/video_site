@@ -28,7 +28,12 @@
         </form>
 
         @slot('md4')
-            <iframe width="250"  src="https://www.youtube.com/embed/FkUr2hBlkVQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            @php $url =getYoutubeId($row->youtube) @endphp
+
+            @if($url)
+                <iframe width="250"  src="https://www.youtube.com/embed/{{$url}}" frameborder="0"  allowfullscreen></iframe>
+            @endif
+
         @endslot
 
     @endcomponent
