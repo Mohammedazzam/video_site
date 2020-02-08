@@ -21,7 +21,7 @@
 
     @component('bake-end.shared.create',['pageTitle' => $pageTitle, 'pageDes' => $pageDes])
 
-        <form action="{{route($routeName.'.store')}}" method="POST">
+        <form action="{{route($routeName.'.store')}}" method="POST" enctype="multipart/form-data">
 
             @include('bake-end.'.$folderName.'.forme')
 

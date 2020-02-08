@@ -19,7 +19,7 @@
     @endcomponent
 
     @component('bake-end.shared.edit', ['pageTitle' => $pageTitle, 'pageDes' => $pageDes])
-        <form action="{{route($routeName.'.update',['id' =>$row])}}" method="POST">
+        <form action="{{route($routeName.'.update',['id' =>$row])}}" method="POST" enctype="multipart/form-data">
             {{method_field('put')}}
             @include('bake-end.'.$folderName.'.forme')
 

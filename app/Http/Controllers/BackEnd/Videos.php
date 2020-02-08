@@ -46,7 +46,6 @@ class Videos extends BackEndController
            $array['selectedTags'] = $this->model->find(request()->route()->parameter('video'))
                ->tags()->pluck('tags.id')->toArray();
 
-
        };
 
 
@@ -56,7 +55,10 @@ class Videos extends BackEndController
 
     public function store(Store $request)
     {
-       $requestArray = $request->all()+ ['user_id'=>auth()->user()->id];//هذه للحفظ
+       $file = $request->file('image');
+       $fileName = time().str_random('10').'.'.$file->getClientOriginalExtension();
+       $file->move(public_path('uploads'),$fileName);
+       $requestArray =  ['user_id'=>auth()->user()->id, 'image' =>$fileName] +$request->all();//هذه للحفظ
        $row = $this->model->create($requestArray); //هذه للحفظ
 
        $this->syncTagsSkills($row , $requestArray);
