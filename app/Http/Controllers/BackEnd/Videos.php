@@ -36,7 +36,8 @@ class Videos extends BackEndController
 
        if(request()->route()->parameter('video')){
            $array['selectedSkills'] = $this->model->find(request()->route()->parameter('video'))
-               ->skills()->get()->pluck('id')->toArray();
+               ->skills()->pluck('skills.id')->toArray(); //نفس الشئ هي والي في الأسفل
+//           ->skills()->get()->pluck('id')->toArray();
 //           dd($array['selectedSkills']);
        };
 
