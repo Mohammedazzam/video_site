@@ -23,15 +23,24 @@ class Videos extends BackEndController
    protected function append()
    {
 
-       dd(request()->route()->parameter('video'));
+//       dd(request()->route()->parameter('video'));
 //       if(request()->route()->parameter('video')){
 //           dd('mmm');
 //       };
 
-       return[
+       $array = [
            'categories' =>Category::get(),
-           'skills' => Skill::get()
+           'skills' => Skill::get(),
+           'selectedSkills' => []
        ];
+
+       if(request()->route()->parameter('video')){
+           $array['selectedSkills'] = $this->model->find(request()->route()->parameter('video'))
+               ->skills()->get()->pluck('id')->toArray();
+           dd($array['selectedSkills']);
+       };
+
+       return $array;
    }
 
 
