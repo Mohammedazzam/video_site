@@ -32,4 +32,10 @@ class Video extends Model
         return $this->belongsToMany(Skill::class,'skills_videos');
 
     }
+
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class,'tags_videos');
+
+    }
 }
