@@ -160,4 +160,22 @@
     </div>
 
 
+    @php $input = "tags[]"; @endphp
+    <div class="col-md-6">
+        <div class="form-group bmd-form-group">
+            <label class="bmd-label-floating"> Tags </label>
+            <select name="{{$input}}" class="form-control @error($input) is-invalid @enderror" multiple style="height: 100px;">
+                @foreach($tags  as $tag)
+                    <option value="{{ $tag->id }}" {{in_array($tag->id,$selectedTags) ? 'selected': ''}} >{{ $tag->name }}</option>
+                @endforeach
+            </select>
+            @error($input)
+            <span class="invalid-feedback" role="alert">
+                   <strong>{{ $message }}</strong>
+             </span>
+            @enderror
+        </div>
+    </div>
+
+
 </div>
