@@ -40,9 +40,9 @@
     @php $input= "image"; @endphp
 
     <div class="col-md-6">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Video image</label>
-            <input type="text" name="{{$input}}"  value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
+        <div>
+            <label>Video image</label>
+            <input type="file" name="{{$input}}"  class="@error($input) is-invalid @enderror">
 
             @error($input)
             <span class="invalid-feedback" role="alert">
