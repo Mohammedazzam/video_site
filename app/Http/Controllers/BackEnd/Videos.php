@@ -59,13 +59,7 @@ class Videos extends BackEndController
        $requestArray = $request->all()+ ['user_id'=>auth()->user()->id];//هذه للحفظ
        $row = $this->model->create($requestArray); //هذه للحفظ
 
-        if (isset($requestArray['skills'])&& !empty($requestArray['skills'])){
-            $row->skills()->sync($requestArray['skills']);
-        }
-
-        if (isset($requestArray['tags'])&& !empty($requestArray['tags'])){
-            $row->tags()->sync($requestArray['tags']);
-        }
+       $this->syncTagsSkills($row , $requestArray);
 
         return redirect()->route('videos.index');
     }
@@ -77,16 +71,23 @@ class Videos extends BackEndController
         $row = $this->model->FindOrFail($id);
         $row->update($requestArray);
 
-        if (isset($requestArray['skills'])&& !empty( $requestArray['skills'])){
-            $row->skills()->sync($requestArray['skills']);
-        }
+        $this->syncTagsSkills($row , $requestArray);
 
-        if (isset($requestArray['tags'])&& !empty($requestArray['tags'])){
-            $row->tags()->sync($requestArray['tags']);
-        }
+
+
 
 
         return redirect()->route('videos.edit', ['id' => $row->id]);
 
+    }
+
+    protected function syncTagsSkills($row,$requestArray){
+        if (isset($requestArray['skills'])&& !empty( $requestArray['skills'])){
+            $row->skills()->sync($requestArray['skills']);
+        };
+
+        if (isset($requestArray['tags'])&& !empty($requestArray['tags'])){
+            $row->tags()->sync($requestArray['tags']);
+        }
     }
 }
