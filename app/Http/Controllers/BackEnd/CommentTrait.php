@@ -13,4 +13,11 @@ trait commentTrait{
         Comments::create($requestArray);
         return redirect()->route('videos.edit',['id'=>$requestArray['video_id']]);
     }
+
+
+    public function commentDelete($id){
+        $row = Comments::findOrFail($id);
+        $row->delete($id);
+        return redirect()->route('videos.edit',['id'=>$row->video_id]);
+    }
 }

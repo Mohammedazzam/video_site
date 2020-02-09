@@ -25,6 +25,8 @@ Route::namespace('BackEnd')->prefix('admin')->group(function (){
     Route::resource('pages','Pages')->except(['show']);
     Route::resource('videos','Videos')->except(['show']);
     Route::post('comments','Videos@commentStore')->name('comment.store');
+    Route::get('comments/{id}','Videos@commentDelete')->name('comment.delete');
+
 
 });
 
