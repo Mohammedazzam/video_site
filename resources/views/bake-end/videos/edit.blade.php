@@ -40,6 +40,8 @@
         @endslot
 
     @endcomponent
+
+    @include('bake-end.comments.index')
 @endsection
 
 

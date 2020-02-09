@@ -35,7 +35,8 @@ class Videos extends BackEndController
            'skills' => Skill::get(),
            'tags' => Tag::get(),
            'selectedSkills' => [],
-           'selectedTags' => []
+           'selectedTags' => [],
+           'comments' => []
        ];
 
        if(request()->route()->parameter('video')){
@@ -46,6 +47,9 @@ class Videos extends BackEndController
 
            $array['selectedTags'] = $this->model->find(request()->route()->parameter('video'))
                ->tags()->pluck('tags.id')->toArray();
+
+           $array['comments'] = $this->model->find(request()->route()->parameter('video'))
+               ->comments();
 
        };
 
