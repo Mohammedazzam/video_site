@@ -24,6 +24,7 @@ Route::namespace('BackEnd')->prefix('admin')->group(function (){
     Route::resource('tags','Tags')->except(['show']);
     Route::resource('pages','Pages')->except(['show']);
     Route::resource('videos','Videos')->except(['show']);
+    Route::post('comments','Videos@commentStore')->name('comment.store');
 
 });
 

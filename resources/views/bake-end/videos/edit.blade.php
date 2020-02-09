@@ -41,6 +41,7 @@
 
     @endcomponent
 
+    @include('bake-end.comments.create')
     @include('bake-end.comments.index')
 @endsection
 

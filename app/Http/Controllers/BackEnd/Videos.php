@@ -12,6 +12,8 @@ use App\Models\Video;
 
 class Videos extends BackEndController
 {
+    use CommentTrait;
+
     public function __construct(Video $model)
     {
         parent::__construct($model);
