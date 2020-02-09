@@ -1,4 +1,4 @@
-@php $input= "comments"; @endphp
+@php $input= "comment"; @endphp
 
 <div class="col-md-12">
     <div class="form-group bmd-form-group">
