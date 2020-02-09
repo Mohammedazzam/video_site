@@ -20,4 +20,10 @@ trait commentTrait{
         $row->delete($id);
         return redirect()->route('videos.edit',['id'=>$row->video_id]);
     }
+
+    public function commentUpdate($id, Store $request){
+        $row = Comments::findOrFail($id);
+        $row->update($request->all());
+        return redirect()->route('videos.edit',['id'=>$row->video_id]);
+    }
 }

@@ -18,6 +18,18 @@
                 </a>
             </td>
         </tr>
+
+        <tr>
+            <td colspan="4">
+                <form action="{{route('comment.update', ['id' => $comment->id])}}" method="post">
+                    {{csrf_field()}}
+                    @include('bake-end.comments.forme' ,['$row'=> $comment])
+                    <input type="hidden" value="{{$row->id}}"  name="video_id">
+                    <button type="submit" class="btn btn-primary pull-right">Update Comment</button>
+                    <div class="clearfix"></div>
+                </form>
+            </td>
+        </tr>
     @endforeach
 
     </tbody>
