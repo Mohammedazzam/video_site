@@ -51,7 +51,7 @@ class Videos extends BackEndController
                ->tags()->pluck('tags.id')->toArray();
 
            $array['comments'] = $this->model->find(request()->route()->parameter('video'))
-               ->comments()->with('user')->get();
+               ->comments()->orderBy('id','desc')->with('user')->get();
 
        };
 
