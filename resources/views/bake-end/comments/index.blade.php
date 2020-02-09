@@ -10,7 +10,7 @@
                 <small>{{$comment->created_at}}</small>
             </td>
             <td class="td-actions text-right">
-                <button type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm"
+                <button type="button" rel="tooltip" title="" onclick="$(this).closest('tr').next('tr').slideToggle()" class="btn btn-white btn-link btn-sm"
                         data-original-title="Edit comment">
                     <i class="material-icons">edit</i>
                 </button>
