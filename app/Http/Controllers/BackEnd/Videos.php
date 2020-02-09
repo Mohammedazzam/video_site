@@ -62,10 +62,9 @@ class Videos extends BackEndController
 
     public function store(Store $request)
     {
-       $file = $request->file('image');
-       $fileName = time().str_random('10').'.'.$file->getClientOriginalExtension();
-       $file->move(public_path('uploads'),$fileName);
-       $requestArray =  ['user_id'=>auth()->user()->id, 'image' =>$fileName] +$request->all();//هذه للحفظ
+        $fileName = $this->uploadImage($request);
+
+        $requestArray =  ['user_id'=>auth()->user()->id, 'image' =>$fileName] +$request->all();//هذه للحفظ
        $row = $this->model->create($requestArray); //هذه للحفظ
 
        $this->syncTagsSkills($row , $requestArray);
@@ -78,9 +77,9 @@ class Videos extends BackEndController
     {
         $requestArray = $request->all();
         if ($request->hasFile('image')){
-            $file = $request->file('image');
-            $fileName = time().str_random('10').'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('uploads'),$fileName);
+
+            $fileName = $this->uploadImage($request);
+
             $requestArray=['image'=>$fileName]+$requestArray;
         }
         $row = $this->model->FindOrFail($id);
@@ -104,5 +103,14 @@ class Videos extends BackEndController
         if (isset($requestArray['tags'])&& !empty($requestArray['tags'])){
             $row->tags()->sync($requestArray['tags']);
         }
+    }
+
+
+    protected function uploadImage($request){
+        $file = $request->file('image');
+        $fileName = time().str_random('10').'.'.$file->getClientOriginalExtension();
+        $file->move(public_path('uploads'),$fileName);
+
+        return $fileName;
     }
 }
