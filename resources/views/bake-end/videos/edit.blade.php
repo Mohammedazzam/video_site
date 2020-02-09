@@ -41,8 +41,17 @@
 
     @endcomponent
 
-    @include('bake-end.comments.create')
-    @include('bake-end.comments.index')
+
+    @component('bake-end.shared.edit', ['pageTitle' => "Comments", 'pageDes' => "Hear We Can Control Comments"])
+
+        @include('bake-end.comments.index')
+        @slot('md4')
+            @include('bake-end.comments.create')
+        @endslot
+
+    @endcomponent
+
+
 @endsection
 
 
