@@ -1,3 +1,3 @@
 @foreach($comments as $comment)
-    {{$comment->comment}}
+    {{$comment->comment}} <br>
 @endforeach
