@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="0">
+<nav class="navbar navbar-expand-lg fixed-top bg-danger">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="{{route('frontend.landing')}}" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom" target="_blank">
