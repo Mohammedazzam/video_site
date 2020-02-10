@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('frontend.landing');
 
 
 Route::namespace('BackEnd')->prefix('admin')->group(function (){
@@ -27,7 +27,6 @@ Route::namespace('BackEnd')->prefix('admin')->group(function (){
     Route::post('comments','Videos@commentStore')->name('comment.store');
     Route::get('comments/{id}','Videos@commentDelete')->name('comment.delete');
     Route::post('comments/{id}','Videos@commentUpdate')->name('comment.update');
-
 
 });
 
