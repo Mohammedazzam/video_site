@@ -69,10 +69,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">Login</a>
+                    <a href="{{url('/login')}}" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Register</a>
+                    <a href="{{url('/register')}}" class="nav-link">Register</a>
                 </li>
 
             </ul>
