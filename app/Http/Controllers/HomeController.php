@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Video;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -27,4 +27,12 @@ class HomeController extends Controller
         $videos = Video::orderBy('id','desc')->paginate(30);
         return view('home',compact('videos'));
     }
+
+
+    public function category($id){
+        $cat = Category::findOrFail($id);
+        $videos = Video::where('cat_id')->orderBy('id','desc')->paginate(30);
+        return view('front-end.category.index',compact('videos','cat'));
+    }
+
 }

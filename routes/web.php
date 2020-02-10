@@ -36,3 +36,5 @@ Route::namespace('BackEnd')->prefix('admin')->group(function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/category/{id}', 'HomeController@category')->name('front.category');
+Route::get('/skill/{id}', 'HomeController@skills')->name('front.skill');

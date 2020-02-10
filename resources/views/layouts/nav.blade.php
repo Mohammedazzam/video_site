@@ -20,7 +20,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @foreach($categories as $category)
-                                <a class="dropdown-item" href="#">{{$category->name}}</a>
+                                <a class="dropdown-item" href="{{route('front.category',['id' =>$category->id])}}">{{$category->name}}</a>
                             @endforeach
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @foreach($skills as $skill)
-                            <a class="dropdown-item" href="#">{{$skill->name}}</a>
+                            <a class="dropdown-item" href="{{route('front.skill',['id' =>$skill->id])}}>{{$skill->name}}</a>
                             @endforeach
                         </div>
                     </div>
