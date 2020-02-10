@@ -122,13 +122,31 @@
               ©
               <script>
                 document.write(new Date().getFullYear())
-              </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+              </script>, made with <i class="fa fa-heart heart"></i> Mohammed Azzam
             </span>
                 </div>
             </div>
         </div>
-    </footer>
-    <!--   Core JS Files   -->
+
+        <div class="card" style="width: 20rem;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+
+        <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+
+</footer>
+</div>
+
+<!--   Core JS Files   -->
     <script src="/frontend/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="/frontend/js/core/popper.min.js" type="text/javascript"></script>
     <script src="/frontend/js/core/bootstrap.min.js" type="text/javascript"></script>
@@ -141,7 +159,7 @@
     <script src="/frontend/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
     <script src="/frontend/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
-
+    <script>
         $(document).ready(function() {
 
             if ($("#datetimepicker").length != 0) {
@@ -171,5 +189,4 @@
         });
     </script>
 </body>
-
 </html>
