@@ -38,10 +38,17 @@
                 {{$video->des}}
             </p>
 
+            <p>
             @foreach($video->tags as $tag)
                     <span class="badge badge-pill badge-primary">{{ $tag->name }}</span>
             @endforeach
+            </p>
 
+            <p>
+            @foreach($video->skills as $skill)
+                <span class="badge badge-pill badge-info">{{ $skill->name }}</span>
+            @endforeach
+            </p>
 
         </div>
     </div>
