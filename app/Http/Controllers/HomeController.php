@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Skill;
 use App\Models\Video;
 
 class HomeController extends Controller
@@ -35,4 +36,11 @@ class HomeController extends Controller
         return view('front-end.category.index',compact('videos','cat'));
     }
 
+    public function skills($id){
+        $cat = Skill::findOrFail($id);
+        $videos = Video::wherHas('skills',function ($query) use($id){
+            $query->where('skill_id',$id);
+        })->orderBy('id','desc')->paginate(30);
+        return view('front-end.skill.index',compact('videos','skill'));
+    }
 }
