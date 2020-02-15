@@ -36,6 +36,7 @@ class HomeController extends Controller
         return view('front-end.category.index',compact('videos','cat'));
     }
 
+
     public function skills($id){
         $cat = Skill::findOrFail($id);
         $videos = Video::wherHas('skills',function ($query) use($id){
@@ -43,4 +44,7 @@ class HomeController extends Controller
         })->orderBy('id','desc')->paginate(30);
         return view('front-end.skill.index',compact('videos','skill'));
     }
+
+
+
 }

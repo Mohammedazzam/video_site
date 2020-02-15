@@ -1,8 +1,12 @@
 <div class="card" style="width: 20rem;">
-    <img class="card-img-top" src="{{url('uploads/'.$video->image)}}" alt="Card image cap" style="max-height: 100px"> <!--هذه خاصة لرفع الصورة-->
+    <a href="{{route('frontend.video'),['id'=>'$video->id']}}" title="{{$video->name}}">
+        <img class="card-img-top" src="{{url('uploads/'.$video->image)}}" alt="{{$video->name}}" style="max-height: 100px">
+    </a> <!--هذه خاصة لرفع الصورة-->
     <div class="card-body">
         <p class="card-text">
-            {{$video->name}}
+            <a href="{{route('frontend.video'),['id'=>'$video->id']}}" title="{{$video->name}}">
+                {{$video->name}}
+            </a>
         </p>
         <small>{{$video->created_at}}</small>
     </div>
