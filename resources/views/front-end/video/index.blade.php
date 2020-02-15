@@ -38,6 +38,9 @@
                 {{$video->des}}
             </p>
 
+            @foreach($video->tags as $tag)
+                    <span class="badge badge-pill badge-primary">{{ $tag->name }}</span>
+            @endforeach
 
 
         </div>
