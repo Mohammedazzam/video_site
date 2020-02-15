@@ -36,6 +36,10 @@ class HomeController extends Controller
         return view('front-end.category.index',compact('videos','cat'));
     }
 
+    public function video($id){
+        $video = Video::findOrFail($id);
+        return view('front-end.video.index',compact('video'));
+    }
 
     public function skills($id){
         $cat = Skill::findOrFail($id);
