@@ -48,7 +48,7 @@
 
             <p>
             @foreach($video->tags as $tag)
-                  <a href="{{route('front.skill' ,['id'=>$tag->id])}}">
+                  <a href="{{route('front.tags' ,['id'=>$tag->id])}}">
                     <span class="badge badge-pill badge-primary">{{ $tag->name }}</span>
                   </a>
             @endforeach
@@ -65,14 +65,24 @@
         </div>
     </div>
 
+            <br> <br>
 
-    <div class="row">
+    <div class="row" id="commnets">
         <div class="col-md-12">
-            @foreach($video->comments as $comment)
-                {{$comment->comment}} <br>
-            @endforeach
+           <div class="card text-left">
+               <div class="card-header card-header-rose">
+                    <h5>Comments</h5>
+               </div>
+                <div class="card-body">
+                    @foreach($video->comments as $comment)
+                        {{$comment->comment}} <hr>
+                    @endforeach
+
+                </div>
+           </div>
         </div>
     </div>
-        </div>
+
+           </div>
     </div>
 @endsection
