@@ -71,10 +71,11 @@
         <div class="col-md-12">
            <div class="card text-left">
                <div class="card-header card-header-rose">
-                    <h5>Comments</h5>
+                   @php $comments =$video->comments @endphp
+                   <h5>Comments {{count($comments)}}</h5>
                </div>
                 <div class="card-body">
-                    @foreach($video->comments as $comment)
+                    @foreach($comments as $comment)
                         {{$comment->comment}} <hr>
                     @endforeach
 
