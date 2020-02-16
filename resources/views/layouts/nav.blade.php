@@ -26,18 +26,17 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <div class="btn-group">
-                        <a  class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Skills
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @foreach($skills as $skill)
-                            <a class="dropdown-item" href="{{route('front.skill',['id' =>$skill->id])}}>{{$skill->name}}</a>
-                            @endforeach
-                        </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Skills
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach($skills as $skill)
+                            <a class="dropdown-item" href="{{ route('front.skill' , ['id' => $skill->id ]) }}">{{ $skill->name }}</a>
+                        @endforeach
                     </div>
                 </li>
+
 
                 <li class="nav-item">
                     <a href="{{url('/login')}}" class="nav-link">Login</a>

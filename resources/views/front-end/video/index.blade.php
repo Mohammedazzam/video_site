@@ -38,21 +38,41 @@
                 {{$video->des}}
             </p>
 
+
+            <p>
+                <a href="{{route('front.category', ['id' => $video->cat->id ])}}">
+                    {{$video->cat->name}}
+                </a>
+            </p>
+
+
             <p>
             @foreach($video->tags as $tag)
+                  <a href="{{route('front.skill' ,['id'=>$tag->id])}}">
                     <span class="badge badge-pill badge-primary">{{ $tag->name }}</span>
+                  </a>
             @endforeach
             </p>
 
             <p>
             @foreach($video->skills as $skill)
-                <span class="badge badge-pill badge-info">{{ $skill->name }}</span>
-            @endforeach
+                 <a href="{{route('front.skill' ,['id'=>$skill->id])}}">
+                    <span class="badge badge-pill badge-info">{{ $skill->name }}</span>
+                 </a>
+                @endforeach
             </p>
 
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="col-md-12">
+            @foreach($video->comments as $comment)
+                {{$comment->comment}} <br>
+            @endforeach
+        </div>
+    </div>
         </div>
     </div>
 @endsection
