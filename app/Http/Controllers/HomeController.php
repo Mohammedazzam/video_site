@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Skill;
+use App\Models\Tag;
 use App\Models\Video;
 
 class HomeController extends Controller
@@ -47,6 +48,14 @@ class HomeController extends Controller
             $query->where('skill_id',$id);
         })->orderBy('id','desc')->paginate(30);
         return view('front-end.skill.index',compact('videos','skill'));
+    }
+
+    public function tags($id){
+        $tag = Tag::findOrFail($id);
+        $videos = Video::whereHas('tags',function ($query) use($id){
+            $query->where('tag_id',$id);
+        })->orderBy('id','desc')->paginate(30);
+        return view('front-end.tag.index',compact('videos','tag'));
     }
 
 
