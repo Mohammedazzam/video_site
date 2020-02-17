@@ -25,7 +25,9 @@ class Update extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:191'],
-            'email' => ['required', 'string', 'email', 'max:191', 'unique:users,email,'.$this->user] //هذه حتى ما يتكرر الايميل
+            'email' => ['required', 'string', 'email', 'max:191', 'unique:users,email,'.$this->user], //هذه حتى ما يتكرر الايميل
+            'group' =>['required']
+
         ];
     }
 }

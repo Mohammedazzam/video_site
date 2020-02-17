@@ -52,4 +52,20 @@
         </div>
     </div>
 
+    @php $input = "group"; @endphp
+    <div class="col-md-6">
+        <div class="form-group bmd-form-group">
+            <label class="bmd-label-floating">Video Status</label>
+            <select name="{{$input}}" class="form-control @error($input) is-invalid @enderror">
+                <option value="1" {{ isset($row) && $row->{$input} == 'admin' ? 'selected'  :'' }}>admin</option>
+                <option value="0" {{ isset($row) && $row->{$input} == 'user' ? 'selected'  :'' }}>user</option>
+            </select>
+            @error($input)
+            <span class="invalid-feedback" role="alert">
+                   <strong>{{ $message }}</strong>
+             </span>
+            @enderror
+        </div>
+    </div>
+
 </div>
