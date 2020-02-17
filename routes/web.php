@@ -16,7 +16,7 @@ Route::get('/', function () {
 })->name('frontend.landing');
 
 
-Route::namespace('BackEnd')->prefix('admin')->group(function (){
+Route::namespace('BackEnd')->prefix('admin')->middleware(['admin'])->group(function (){
     Route::get('home','Home@index')->name('admin.home');
     Route::resource('users','Users')->except(['show']);
     Route::resource('categories','Categories')->except(['show']);
