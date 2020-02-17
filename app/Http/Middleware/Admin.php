@@ -16,6 +16,8 @@ class Admin
     public function handle($request, Closure $next)
     {
         dd(auth()->user());
+        if (auth()->guest())
+            return redirect('/login');
         return $next($request);
     }
 }
