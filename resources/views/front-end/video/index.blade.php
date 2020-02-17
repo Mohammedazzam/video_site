@@ -84,6 +84,9 @@
                         <span>
                             <i class="nc-icon nc-calendar-60"></i> : {{$comment->created_at}}<!--هنا راح يعرضلي وقت انشاء الكومينت-->
                         </span>
+                            @if((auth()->user()->group =='admin')|| auth()->user()->id == $comment->user->id)
+                            @endif
+                            <a href="">edit</a>
                         </div>
                      </div>
                         <p>{{$comment->comment}}</p>
