@@ -26,7 +26,6 @@
             <button type="submit" class="btn btn-primary pull-right">Update {{$moduleName}}</button>
             <div class="clearfix"></div>
         </form>
-        </div>
     @endcomponent
 @endsection
 

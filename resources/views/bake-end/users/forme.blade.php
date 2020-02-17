@@ -55,10 +55,10 @@
     @php $input = "group"; @endphp
     <div class="col-md-6">
         <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Video Status</label>
+            <label class="bmd-label-floating">User Group</label>
             <select name="{{$input}}" class="form-control @error($input) is-invalid @enderror">
-                <option value="1" {{ isset($row) && $row->{$input} == 'admin' ? 'selected'  :'' }}>admin</option>
-                <option value="0" {{ isset($row) && $row->{$input} == 'user' ? 'selected'  :'' }}>user</option>
+                <option value="admin" {{ isset($row) && $row->{$input} == 'admin' ? 'selected'  :'' }}>admin</option>
+                <option value="user" {{ isset($row) && $row->{$input} == 'user' ? 'selected'  :'' }}>user</option>
             </select>
             @error($input)
             <span class="invalid-feedback" role="alert">

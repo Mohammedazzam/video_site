@@ -42,6 +42,9 @@
                 <th>
                     email
                 </th>
+                <th>
+                    group
+                </th>
                 <th class="text-right">
                     control
                 </th>
@@ -58,6 +61,9 @@
                     </td>
                     <td>
                         {{$row->email}}
+                    </td>
+                    <td>
+                        {{$row->group}}
                     </td>
                     <td class="td-actions text-right">
                         @include('bake-end.shared.buttons.edit')
