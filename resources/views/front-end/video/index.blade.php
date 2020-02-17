@@ -76,7 +76,20 @@
                </div>
                 <div class="card-body">
                     @foreach($comments as $comment)
-                        {{$comment->comment}} <hr>
+                     <div class="row">
+                        <div class="col-md-8">
+                            <i class="nc-icon nc-chat-33"></i> : {{$comment->user->name}} <!--هنا راح يعرضلي الي كتب الكومينت أي اسم اليوزر-->
+                        </div>
+                        <div class="col-md-4">
+                        <span>
+                            <i class="nc-icon nc-calendar-60"></i> : {{$comment->created_at}}<!--هنا راح يعرضلي وقت انشاء الكومينت-->
+                        </span>
+                        </div>
+                     </div>
+                        <p>{{$comment->comment}}</p>
+                        @if(!$loop->last) <!--هذا اللوب بمعنى لو أنني مش في آخر الكومينت أظهر <hr>-->
+                            <hr>
+                        @endif
                     @endforeach
 
                 </div>

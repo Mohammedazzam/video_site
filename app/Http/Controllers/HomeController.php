@@ -38,7 +38,7 @@ class HomeController extends Controller
     }
 
     public function video($id){
-        $video = Video::findOrFail($id);
+        $video = Video::with('skills','tags','user','user','comments.user')->findOrFail($id);
         return view('front-end.video.index',compact('video'));
     }
 
