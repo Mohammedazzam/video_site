@@ -37,14 +37,32 @@
                     </div>
                 </li>
 
+                @guest
 
-                <li class="nav-item">
-                    <a href="{{url('/login')}}" class="nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('/register')}}" class="nav-link">Register</a>
-                </li>
+                    <li class="nav-item">
+                        <a href="{{url('/login')}}" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('/register')}}" class="nav-link">Register</a>
+                    </li>
+                 @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{Auth::user()->name}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
