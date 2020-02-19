@@ -80,13 +80,19 @@
                         <div class="col-md-8">
                             <i class="nc-icon nc-chat-33"></i> : {{$comment->user->name}} <!--هنا راح يعرضلي الي كتب الكومينت أي اسم اليوزر-->
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 text-right">
                         <span>
                             <i class="nc-icon nc-calendar-60"></i> : {{$comment->created_at}}<!--هنا راح يعرضلي وقت انشاء الكومينت-->
                         </span>
                             @if((auth()->user()->group =='admin')|| auth()->user()->id == $comment->user->id)
+                                <a href="">edit</a>
+                                <div>
+                                    <form action="{{route('front.commentUpdate',['id' =>$comment->id])}}"method="post">
+                                        <textarea name="comment" cols="30" rows="10"></textarea>
+                                        <button type="submit">Edit</button>
+                                    </form>
+                                </div>
                             @endif
-                            <a href="">edit</a>
                         </div>
                      </div>
                         <p>{{$comment->comment}}</p>

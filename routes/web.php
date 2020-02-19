@@ -40,4 +40,5 @@ Route::get('/category/{id}', 'HomeController@category')->name('front.category');
 Route::get('/skill/{id}', 'HomeController@skills')->name('front.skill');
 Route::get('/tag/{id}', 'HomeController@tags')->name('front.tags');
 Route::get('/video/{id}', 'HomeController@video')->name('frontend.video');
+Route::get('/comments/{id}', 'HomeController@commentUpdate')->name('front.commentUpdate');
 
