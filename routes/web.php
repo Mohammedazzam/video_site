@@ -41,4 +41,7 @@ Route::get('/skill/{id}', 'HomeController@skills')->name('front.skill');
 Route::get('/tag/{id}', 'HomeController@tags')->name('front.tags');
 Route::get('/video/{id}', 'HomeController@video')->name('frontend.video');
 Route::post('/comments/{id}', 'HomeController@commentUpdate')->name('front.commentUpdate');
+Route::post('/comments/{id}/create', 'HomeController@commentStore')->name('front.commentStore');
+
+
 
