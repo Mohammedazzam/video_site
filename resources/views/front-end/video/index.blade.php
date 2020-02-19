@@ -87,7 +87,9 @@
 
                         </div>
                      </div>
+
                         <p>{{$comment->comment}}</p>
+                    @if(auth()->user())
                         @if((auth()->user()->group =='admin')|| auth()->user()->id == $comment->user->id)
                             <a href="" onclick="$(this).next('div').slideToggle(1000);return false;">edit</a>
                             <div style="display: none">
@@ -100,9 +102,10 @@
                                 </form>
                             </div>
                         @endif
-                        @if(!$loop->last) <!--هذا اللوب بمعنى لو أنني مش في آخر الكومينت أظهر <hr>-->
-                            <hr>
                         @endif
+                        @if(!$loop->last) <!--هذا اللوب بمعنى لو أنني مش في آخر الكومينت أظهر <hr>-->
+                        <hr>
+                    @endif
                     @endforeach
 
                 </div>
