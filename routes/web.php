@@ -40,8 +40,14 @@ Route::get('/category/{id}', 'HomeController@category')->name('front.category');
 Route::get('/skill/{id}', 'HomeController@skills')->name('front.skill');
 Route::get('/tag/{id}', 'HomeController@tags')->name('front.tags');
 Route::get('/video/{id}', 'HomeController@video')->name('frontend.video');
-Route::post('/comments/{id}', 'HomeController@commentUpdate')->name('front.commentUpdate');
-Route::post('/comments/{id}/create', 'HomeController@commentStore')->name('front.commentStore');
 
+
+//ماحدا راح يعرف يصل للurl هدول حتى وإن كان عارفهم إلا إذا كان authantecated
+//والفورم كذلك لن يظهروا للشخص الغير مسجل دخول
+Route::middleware(['auth'])->group(function (){
+    Route::post('/comments/{id}', 'HomeController@commentUpdate')->name('front.commentUpdate');
+    Route::post('/comments/{id}/create', 'HomeController@commentStore')->name('front.commentStore');
+
+});
 
 
