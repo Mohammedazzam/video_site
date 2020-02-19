@@ -84,19 +84,22 @@
                         <span>
                             <i class="nc-icon nc-calendar-60"></i> : {{$comment->created_at}}<!--هنا راح يعرضلي وقت انشاء الكومينت-->
                         </span>
-                            @if((auth()->user()->group =='admin')|| auth()->user()->id == $comment->user->id)
-                                <a href="">edit</a>
-                                <div>
-                                    <form action="{{route('front.commentUpdate',['id' =>$comment->id])}}"method="post">
-                                        {{csrf_field()}}
-                                        <textarea name="comment" rows="4">{{$comment->comment}}</textarea>
-                                        <button type="submit">Edit</button>
-                                    </form>
-                                </div>
-                            @endif
+
                         </div>
                      </div>
                         <p>{{$comment->comment}}</p>
+                        @if((auth()->user()->group =='admin')|| auth()->user()->id == $comment->user->id)
+                            <a href="" onclick="$(this).next('div').slideToggle(1000);return false;">edit</a>
+                            <div style="display: none">
+                                <form action="{{route('front.commentUpdate',['id' =>$comment->id])}}"method="post">
+                                    {{csrf_field()}}
+                                    <div class="form-group">
+                                        <textarea name="comment" class="form-control" rows="4">{{$comment->comment}}</textarea>
+                                    </div>
+                                    <button type="submit" class="btn">Edit</button>
+                                </form>
+                            </div>
+                        @endif
                         @if(!$loop->last) <!--هذا اللوب بمعنى لو أنني مش في آخر الكومينت أظهر <hr>-->
                             <hr>
                         @endif
