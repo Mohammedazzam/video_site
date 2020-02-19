@@ -88,7 +88,8 @@
                                 <a href="">edit</a>
                                 <div>
                                     <form action="{{route('front.commentUpdate',['id' =>$comment->id])}}"method="post">
-                                        <textarea name="comment" cols="30" rows="10"></textarea>
+                                        {{csrf_field()}}
+                                        <textarea name="comment" rows="4">{{$comment->comment}}</textarea>
                                         <button type="submit">Edit</button>
                                     </form>
                                 </div>

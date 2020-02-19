@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FrontEnd\Comments\Store;
 use App\Models\Category;
+use App\Models\Comments;
 use App\Models\Skill;
 use App\Models\Tag;
 use App\Models\Video;
@@ -56,6 +58,14 @@ class HomeController extends Controller
             $query->where('tag_id',$id);
         })->orderBy('id','desc')->paginate(30);
         return view('front-end.tag.index',compact('videos','tag'));
+    }
+
+    public function commentUpdate($id,Store $request){
+        $comment = Comments::findOrFail($id);
+        if(($comment->user_id == auth()->user()->id) || auth()->user()->group == 'admin'){
+            $comment->update(['comment' => $request->comment]);
+            }
+            return redirect()->route('frontend.video',['id'=>$comment->video_id,'#commnets']);
     }
 
 
