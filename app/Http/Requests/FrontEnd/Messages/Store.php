@@ -4,7 +4,7 @@ namespace App\Http\Requests\FrontEnd\Messages;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Stor extends FormRequest
+class Store extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class Stor extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class Stor extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required','min:3','max:191'],
+            'email' => ['required','min:10','max:191','email'],
+            'message' => ['required','min:10','max:500'],
         ];
     }
 }

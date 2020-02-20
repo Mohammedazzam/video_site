@@ -40,6 +40,7 @@ Route::get('/category/{id}', 'HomeController@category')->name('front.category');
 Route::get('/skill/{id}', 'HomeController@skills')->name('front.skill');
 Route::get('/tag/{id}', 'HomeController@tags')->name('front.tags');
 Route::get('/video/{id}', 'HomeController@video')->name('frontend.video');
+Route::get('contact-us', 'HomeController@messageStore')->name('contact.store');
 
 
 //ماحدا راح يعرف يصل للurl هدول حتى وإن كان عارفهم إلا إذا كان authantecated
@@ -49,5 +50,7 @@ Route::middleware(['auth'])->group(function (){
     Route::post('/comments/{id}/create', 'HomeController@commentStore')->name('front.commentStore');
 
 });
+
+
 
 

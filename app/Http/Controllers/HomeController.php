@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FrontEnd\Comments\Store;
 use App\Models\Category;
 use App\Models\Comments;
+use App\Models\Message;
 use App\Models\Skill;
 use App\Models\Tag;
 use App\Models\Video;
@@ -80,6 +81,11 @@ class HomeController extends Controller
         ]);
 
         return redirect()->route('frontend.video',['id'=>$video->id,'#commnets']);
+    }
+
+    public function messageStore(\App\Http\Requests\FrontEnd\Messages\Store $request){
+        Message::create($request->all());
+        return redirect()->route('frontend.landing');
     }
 
 }
