@@ -20,8 +20,6 @@
 
     @component('bake-end.shared.edit', ['pageTitle' => $pageTitle, 'pageDes' => $pageDes])
             @include('bake-end.'.$folderName.'.forme')
-            <button type="submit" class="btn btn-primary pull-right">Update {{$moduleName}}</button>
-            <div class="clearfix"></div>
     @endcomponent
 @endsection
 
