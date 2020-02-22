@@ -25,7 +25,7 @@ Route::namespace('BackEnd')->prefix('admin')->middleware(['admin'])->group(funct
     Route::resource('pages','Pages')->except(['show']);
     Route::resource('videos','Videos')->except(['show']);
     Route::resource('messages','Messages')->only(['index','destroy','edit']);
-    Route::post('messages/replay/{id}', 'Messages@replay')->name('message.replay');
+    Route::get('messages/replay/{id}', 'Messages@replay')->name('message.replay');
 
 
     Route::post('comments','Videos@commentStore')->name('comment.store');

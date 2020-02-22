@@ -16,9 +16,13 @@ class ReplayContact extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    protected $message;
+    protected $replay;
+
+    public function __construct($message ,$replay)
     {
-        //
+        $this->message =$message;
+        $this->replay = $replay;
     }
 
     /**
@@ -28,6 +32,10 @@ class ReplayContact extends Mailable
      */
     public function build()
     {
-        return $this->view('bake-end.mails.replay-message');
+        $contactMessage= $this->message;
+        $replay= $this->replay;
+//        dd($contactMessage);
+        return $this->to($contactMessage->email)
+        ->view('bake-end.mails.replay-message', compact('contactMessage','replay'));
     }
 }
