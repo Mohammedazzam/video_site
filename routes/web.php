@@ -43,6 +43,7 @@ Route::get('/tag/{id}', 'HomeController@tags')->name('front.tags');
 Route::get('/video/{id}', 'HomeController@video')->name('frontend.video');
 Route::get('contact-us', 'HomeController@messageStore')->name('contact.store');
 Route::get('/','HomeController@welcome')->name('frontend.landing');
+Route::get('page/{id}/{slug?}', 'HomeController@page')->name('front.page');
 
 
 

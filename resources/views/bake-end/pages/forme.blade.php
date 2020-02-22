@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Category Name</label>
+            <label class="bmd-label-floating">Page Name</label>
             <input type="text" name="{{$input}}" value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
 
             @error($input)

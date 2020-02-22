@@ -6,6 +6,7 @@ use App\Http\Requests\FrontEnd\Comments\Store;
 use App\Models\Category;
 use App\Models\Comments;
 use App\Models\Message;
+use App\Models\Page;
 use App\Models\Skill;
 use App\Models\Tag;
 use App\Models\Video;
@@ -94,5 +95,10 @@ class HomeController extends Controller
         $comments_count = Comments::count();//لإظهار عدد الكومينتات
         $tags_count = Tag::count();//لإظهار عدد التاجات
         return view('welcome',compact('videos','videos_count','comments_count','tags_count'));
+    }
+
+    public function page($id, $slug= null){
+        $page = Page::findOrFail($id);
+        return view('front-end.page.index',compact('page'));
     }
 }
