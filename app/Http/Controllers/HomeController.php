@@ -89,6 +89,7 @@ class HomeController extends Controller
     }
 
     public function welcome(){
-         return view('welcome');
+        $videos = Video::orderBy('id','desc')->paginate(9);
+        return view('welcome',compact('videos'));
     }
 }
