@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('frontend.landing');
-
+//هذا الجزء خاص لل admin
 
 Route::namespace('BackEnd')->prefix('admin')->middleware(['admin'])->group(function (){
     Route::get('home','Home@index')->name('admin.home');
@@ -36,7 +33,7 @@ Route::namespace('BackEnd')->prefix('admin')->middleware(['admin'])->group(funct
 
 
 
-
+//هذا الجزء خاص لل visitor
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -45,10 +42,16 @@ Route::get('/skill/{id}', 'HomeController@skills')->name('front.skill');
 Route::get('/tag/{id}', 'HomeController@tags')->name('front.tags');
 Route::get('/video/{id}', 'HomeController@video')->name('frontend.video');
 Route::get('contact-us', 'HomeController@messageStore')->name('contact.store');
+Route::get('/','HomeController@welcome')->name('frontend.landing');
+
+
 
 
 //ماحدا راح يعرف يصل للurl هدول حتى وإن كان عارفهم إلا إذا كان authantecated
 //والفورم كذلك لن يظهروا للشخص الغير مسجل دخول
+
+
+//هذا الجزء خاص للاثنتيكاشن
 Route::middleware(['auth'])->group(function (){
     Route::post('/comments/{id}', 'HomeController@commentUpdate')->name('front.commentUpdate');
     Route::post('/comments/{id}/create', 'HomeController@commentStore')->name('front.commentStore');

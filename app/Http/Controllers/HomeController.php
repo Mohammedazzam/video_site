@@ -88,4 +88,7 @@ class HomeController extends Controller
         return redirect()->route('frontend.landing');
     }
 
+    public function welcome(){
+         return view('welcome');
+    }
 }
