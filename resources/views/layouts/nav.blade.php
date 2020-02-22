@@ -62,6 +62,13 @@
                         </div>
                     </li>
                 @endguest
+                <li>
+                    <form class="form-inline ml-auto" style="margin-top: 15px" action="{{route('home')}}">
+                        <div class="form-group has-white">
+                            <input type="text" name="search" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
