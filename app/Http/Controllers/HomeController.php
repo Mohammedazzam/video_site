@@ -90,6 +90,9 @@ class HomeController extends Controller
 
     public function welcome(){
         $videos = Video::orderBy('id','desc')->paginate(9);
-        return view('welcome',compact('videos'));
+        $videos_count = Video::count(); //لإظهار عدد الفيديوهات
+        $comments_count = Comments::count();//لإظهار عدد الكومينتات
+        $tags_count = Tag::count();//لإظهار عدد التاجات
+        return view('welcome',compact('videos','videos_count','comments_count','tags_count'));
     }
 }
