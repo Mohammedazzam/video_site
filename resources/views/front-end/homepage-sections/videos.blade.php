@@ -12,6 +12,6 @@
             @include('front-end.shared.video-row')
         </div>
         <br>
-        <a href="#paper-kit" class="btn btn-danger btn-round">See Details</a>
+        <a href="{{route('home')}}" class="btn btn-danger btn-round">MORE VIDEOS</a>
     </div>
 </div>
