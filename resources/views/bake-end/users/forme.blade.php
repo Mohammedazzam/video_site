@@ -1,10 +1,9 @@
 @csrf()
 {{--{{csrf_field()}}--}}
 
-@php $input= "name"; @endphp   <!--هيك لما بغير في الفورم بغير فقط هنا في هذا ال name -->
-
 
 <div class="row">
+    @php $input= "name"; @endphp   <!--هيك لما بغير في الفورم بغير فقط هنا في هذا ال name -->
     <div class="col-md-6">
         <div class="form-group bmd-form-group">
             <label class="bmd-label-floating">Username</label>
