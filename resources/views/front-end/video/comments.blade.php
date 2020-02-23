@@ -10,8 +10,9 @@
                     <div class="row">
                         <div class="col-md-8">
                             <i class="nc-icon nc-chat-33"></i> :
-                        <a href="{{route('front.profile', ['id'=>$comment->user->id , 'slug'=>slug($comment->user->name)])}}"></a>
-                        {{$comment->user->name}} <!--هنا راح يعرضلي الي كتب الكومينت أي اسم اليوزر-->
+                            <a href="{{ route('front.profile' , ['id' => $comment->user->id , 'slug' => slug($comment->user->name)]) }}">
+                                {{$comment->user->name}} <!--هنا راح يعرضلي الي كتب الكومينت أي اسم اليوزر-->
+                            </a>
                         </div>
                         <div class="col-md-4 text-right">
                         <span>

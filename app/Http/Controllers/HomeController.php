@@ -9,6 +9,7 @@ use App\Models\Message;
 use App\Models\Page;
 use App\Models\Skill;
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Video;
 
 class HomeController extends Controller
@@ -104,5 +105,10 @@ class HomeController extends Controller
     public function page($id, $slug= null){
         $page = Page::findOrFail($id);
         return view('front-end.page.index',compact('page'));
+    }
+
+    public function profile($id){
+        $user = User::findOrFail($id);
+        return view('front-end.profile.index',compact('user'));
     }
 }
