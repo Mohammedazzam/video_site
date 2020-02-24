@@ -57,7 +57,9 @@
 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-info btn-round">Update Profile</button>
+                <div class="col-md-6" style="margin-top: 30px">
+                    <button type="submit" class="btn btn-info btn-round">Update Profile</button>
+                </div>
                 <div class="clearfix"></div>
             </div>
         </form>
