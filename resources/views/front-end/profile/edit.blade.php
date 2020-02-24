@@ -15,7 +15,7 @@
                 <div class="col-md-6">
                     <div class="form-group bmd-form-group">
                         <label class="bmd-label-floating">Username</label>
-                        <input type="text" name="{{$input}}" value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
+                        <input type="text" name="{{$input}}" value="{{isset($user)? $user->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
 
                         @error($input)
                         <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                 <div class="col-md-6">
                     <div class="form-group bmd-form-group">
                         <label class="bmd-label-floating">Email address</label>
-                        <input type="email" name="{{$input}}"  value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
+                        <input type="email" name="{{$input}}"  value="{{isset($user)? $user->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
 
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -58,6 +58,8 @@
 
                     </div>
                 </div>
+                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                <div class="clearfix"></div>
             </div>
         </form>
     </div>
