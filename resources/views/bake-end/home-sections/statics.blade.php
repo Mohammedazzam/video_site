@@ -56,7 +56,7 @@
                 </div>
                 <p class="card-category">Comments</p>
                 <h3 class="card-title">{{\App\Models\Comments::count()}}</h3>
-            </div>س
+            </div>
             <div class="card-footer">
                 <div class="stats">
                     <a href="{{route('videos.index')}}" class="warning-link">Check Videos</a>
