@@ -25,7 +25,7 @@
             <br>
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                    <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Update Profile</btn>
+                    <btn onclick="$('#profileCard').slideToggle(1000)" class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Update Profile</btn>
                 </div>
             </div>
 

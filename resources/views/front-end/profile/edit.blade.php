@@ -1,6 +1,5 @@
-<br>
 
-<div class="card text-left">
+<div class="card text-left" id="profileCard" style="margin-top: 20px;display:none">
     <div class="card-header card-header-rose">
         <h4 style="margin-top: 10px; margin-bottom: 5px">Update Profile</h4>
     </div>
@@ -58,7 +57,7 @@
 
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                <button type="submit" class="btn btn-info btn-round">Update Profile</button>
                 <div class="clearfix"></div>
             </div>
         </form>
