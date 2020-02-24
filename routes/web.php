@@ -45,6 +45,7 @@ Route::get('contact-us', 'HomeController@messageStore')->name('contact.store');
 Route::get('/','HomeController@welcome')->name('frontend.landing');
 Route::get('page/{id}/{slug?}', 'HomeController@page')->name('front.page');
 Route::get('profile/{id}/{slug?}', 'HomeController@profile')->name('front.profile');
+Route::post('profile', 'HomeController@profileUpdate')->name('profile.update');
 
 
 

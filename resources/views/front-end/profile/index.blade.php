@@ -21,15 +21,16 @@
                     </h6>
                 </div>
             </div>
-
+            @if(auth()->user() && $user->id == auth()->user()->id)
             <br>
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                    <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Settings</btn>
+                    <btn class="btn btn-outline-default btn-round"><i class="fa fa-cog"></i> Update Profile</btn>
                 </div>
             </div>
 
-            @include('front-end.profile.edit')
+                @include('front-end.profile.edit')
+            @endif
         </div>
     </div>
 

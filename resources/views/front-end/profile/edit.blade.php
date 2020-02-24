@@ -1,54 +1,65 @@
-<div class="row">
+<br>
 
-    <form action="{{route('profile.update')}}" method="post">
-        {{csrf_field()}}
+<div class="card text-left">
+    <div class="card-header card-header-rose">
+        <h4 style="margin-top: 10px; margin-bottom: 5px">Update Profile</h4>
+    </div>
+    <div class="card-body">
+        <form action="{{route('profile.update')}}" method="post">
 
-    @php $input= "name"; @endphp   <!--هيك لما بغير في الفورم بغير فقط هنا في هذا ال name -->
-        <div class="col-md-6">
-            <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating">Username</label>
-                <input type="text" name="{{$input}}" value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
+            <div class="row">
 
-                @error($input)
-                <span class="invalid-feedback" role="alert">
+            {{csrf_field()}}
+
+            @php $input= "name"; @endphp   <!--هيك لما بغير في الفورم بغير فقط هنا في هذا ال name -->
+                <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-floating">Username</label>
+                        <input type="text" name="{{$input}}" value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
+
+                        @error($input)
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                @enderror
+                        @enderror
 
-            </div>
-        </div>
+                    </div>
+                </div>
 
 
-        @php $input= "email"; @endphp
+                @php $input= "email"; @endphp
 
-        <div class="col-md-6">
-            <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating">Email address</label>
-                <input type="email" name="{{$input}}"  value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
+                <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-floating">Email address</label>
+                        <input type="email" name="{{$input}}"  value="{{isset($row)? $row->{$input}: ''}}" class="form-control @error($input) is-invalid @enderror">
 
-                @error('email')
-                <span class="invalid-feedback" role="alert">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                @enderror
+                        @enderror
 
-            </div>
-        </div>
+                    </div>
+                </div>
 
-        @php $input= "password"; @endphp
+                @php $input= "password"; @endphp
 
-        <div class="col-md-6">
-            <div class="form-group bmd-form-group">
-                <label class="bmd-label-floating">Password</label>
-                <input type="password" name="{{$input}}" class="form-control @error($input) is-invalid @enderror">
+                <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-floating">Password</label>
+                        <input type="password" name="{{$input}}" class="form-control @error($input) is-invalid @enderror">
 
-                @error($input)
-                <span class="invalid-feedback" role="alert">
+                        @error($input)
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                @enderror
+                        @enderror
 
+                    </div>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
+
