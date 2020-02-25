@@ -3,6 +3,9 @@
 
 @section('title' ,$video->name)
 
+@section('meta_keywords' , $video->meta_keywords)
+
+@section('meta_des' , $video->meta_des)
 
 @section('content')
     <div class="section section-buttons">
