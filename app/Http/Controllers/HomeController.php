@@ -35,7 +35,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $videos = Video::orderBy('id','desc');
+        $videos = Video::published()->orderBy('id' , 'desc');
         if(request()->has('search')&& request()->get('search')!=''){
             $videos = $videos->where('name','like',"%".request()->get('search'));
         }
@@ -46,18 +46,18 @@ class HomeController extends Controller
 
     public function category($id){
         $cat = Category::findOrFail($id);
-        $videos = Video::where('cat_id')->orderBy('id','desc')->paginate(30);
+        $videos = Video::published()->where('cat_id')->orderBy('id','desc')->paginate(30);
         return view('front-end.category.index',compact('videos','cat'));
     }
 
     public function video($id){
-        $video = Video::with('skills','tags','user','user','comments.user')->findOrFail($id);
+        $video = Video::published()->with('skills','tags','user','user','comments.user')->findOrFail($id);
         return view('front-end.video.index',compact('video'));
     }
 
     public function skills($id){
         $skill = Skill::findOrFail($id);
-        $videos = Video::whereHas('skills',function ($query) use($id){
+        $videos = Video::published()->whereHas('skills' , function ($query) use ($id){
             $query->where('skill_id',$id);
         })->orderBy('id','desc')->paginate(30);
         return view('front-end.skill.index',compact('videos','skill'));
@@ -65,7 +65,7 @@ class HomeController extends Controller
 
     public function tags($id){
         $tag = Tag::findOrFail($id);
-        $videos = Video::whereHas('tags',function ($query) use($id){
+        $videos = Video::published()->whereHas('tags' , function ($query) use ($id){
             $query->where('tag_id',$id);
         })->orderBy('id','desc')->paginate(30);
         return view('front-end.tag.index',compact('videos','tag'));
@@ -80,7 +80,7 @@ class HomeController extends Controller
     }
 
     public function commentStore($id,Store $request){
-        $video = Video::findOrFail($id);
+        $video = Video::published()->findOrFail($id);
         Comments::create([
             'user_id'=>auth()->user()->id,
             'video_id'=>$video->id,
@@ -97,8 +97,8 @@ class HomeController extends Controller
     }
 
     public function welcome(){
-        $videos = Video::orderBy('id','desc')->paginate(9);
-        $videos_count = Video::count(); //لإظهار عدد الفيديوهات
+        $videos = Video::published()->orderBy('id' , 'desc')->paginate(9);
+        $videos_count = Video::published()->count(); //لإظهار عدد الفيديوهات
         $comments_count = Comments::count();//لإظهار عدد الكومينتات
         $tags_count = Tag::count();//لإظهار عدد التاجات
         return view('welcome',compact('videos','videos_count','comments_count','tags_count'));
@@ -116,22 +116,25 @@ class HomeController extends Controller
 
     public function profileUpdate(\App\Http\Requests\FrontEnd\Users\Store $request){
         $user = User::findOrFail(auth()->user()->id);
-        $array = [];
-        if($request->email != $user->email){
-            $email = User::where('email' , $request->email)->first();
-            if($email == null){
-                $array['email'] =  $request->email;
+//        dd($user);
+        $array=[];
+        if ($request->email != $user->email) {
+            $email = User::where('email', $request->email)->first();
+            if ($email == null) {
+                $array['email'] = $request->email;
             }
         }
-        if($request->name != $user->name){
-            $array['name'] =  $request->name;
+        if ($request->name != $user->name){
+            $array['name'] = $request->name;
         }
-        if($request->password != ''){
-            $array['password'] =  Hash::make($request->password);
+
+        if ($request->password != $user->password){
+            $array['password'] = Hash::make($request->password);
         }
-        if(!empty($array)){
+
+        if (empty($array)){
             $user->update($array);
         }
-        return redirect()->route('front.profile' , ['id' => $user->id , 'slug' =>slug($user->name)]);
+        return redirect()->route('front.profile',['id'=>$user->id , 'slug'=>slug($user->name)]);
     }
 }

@@ -42,4 +42,8 @@ class Video extends Model
     public function tags(){
         return $this->belongsToMany(Tag::class , 'tags_videos');
     }
+
+    public function scopePublished(){
+        return $this->where('published' , 1);
+    }
 }
