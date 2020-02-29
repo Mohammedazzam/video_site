@@ -11,6 +11,11 @@ class Users extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\User::create([
+            'name' =>'admin',
+            'email' =>'admin@website.com',
+            'password' => bcrypt('123456'),
+            'group'=> 'admin'
+    ]);
     }
 }

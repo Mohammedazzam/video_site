@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class Skills extends Seeder
+class Comments extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +16,11 @@ class Skills extends Seeder
 
         for($i = 0 ;$i< 10 ;$i++){
             $array = [
-                'name' => $faker->word,//عبارة عن كلمة
+                'comment' => $faker->paragraph,
+                'user_id'=>1,
+                'Video_id'=>rand(1,9)
             ];
-            \App\Models\Skill::create($array);
+            \App\Models\Comments::create($array);
         }
     }
 }
