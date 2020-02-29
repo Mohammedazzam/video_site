@@ -75,8 +75,10 @@ class HomeController extends Controller
         $comment = Comments::findOrFail($id);
         if(($comment->user_id == auth()->user()->id) || auth()->user()->group == 'admin'){
             $comment->update(['comment' => $request->comment]);
-            }
-            return redirect()->route('frontend.video',['id'=>$comment->video_id,'#commnets']);
+            alert()->success('You Comment Has Been Updated', 'Done');
+        }
+        alert()->error('We Did Not Found This Comment', 'Done');
+        return redirect()->route('frontend.video',['id'=>$comment->video_id,'#commnets']);
     }
 
     public function commentStore($id,Store $request){
@@ -85,9 +87,9 @@ class HomeController extends Controller
             'user_id'=>auth()->user()->id,
             'video_id'=>$video->id,
             'comment'=>$request->comment
-
         ]);
 
+        alert()->success('Yoy Comment Has Been Added', 'Done');
         return redirect()->route('frontend.video',['id'=>$video->id,'#commnets']);
     }
 
@@ -136,6 +138,7 @@ class HomeController extends Controller
         if (empty($array)){
             $user->update($array);
         }
+        alert()->success('You Profile Has Been Updated', 'Done');
         return redirect()->route('front.profile',['id'=>$user->id , 'slug'=>slug($user->name)]);
     }
 }
