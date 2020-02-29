@@ -12,21 +12,37 @@ class Videos extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();//هيك بكريت داتا غير حقيقية
+        $faker = Faker::create();
+
+        $images = [
+            '1582660221vGXGfEt4tR.png',
+            '15812005704f6ZTMi00m.jpg'
+        ];
+
+        $youtube = [
+            'https://www.youtube.com/watch?v=Y49Ba16pK20',
+            'https://www.youtube.com/watch?v=HuEmunei6ZY',
+            'https://www.youtube.com/watch?v=iXKp4Pk3ic0',
+            'https://www.youtube.com/watch?v=DQK-jxjEkEY'
+        ];
+
+        $ids = [1,2,3,4,5,6,7,8,9];
 
         for($i = 0 ;$i< 10 ;$i++){
             $array = [
-                'name' => $faker->word,//عبارة عن كلمة
+                'name' => $faker->word,
                 'meta_keywords' => $faker->name,
                 'meta_des' => $faker->name,
-                'cat_id' =>1,
-                'youtube' =>'https://www.youtube.com/watch?v=X3sIek20fVU&list=PLo-dduytL5_DIss4fOyHDc0l5rE_smqy5&index=14&t=0s',
-                'published'=> rand(0,1), //هيك شوية راح يشتغل ب 0 وشوية راح يشتغل ب 1
-                'image' => '1581804683HkoEuepMzd.jpg', //اسم الصورة
-                'des' => $faker->paragraph, //هيك بضيف نص لحالو
-                'user_id' =>1
+                'cat_id' => 1,
+                'youtube' => $youtube[rand(0,3)],
+                'published' => rand(0,1),
+                'image' => $images[rand(0,1)],
+                'des' => $faker->paragraph,
+                'user_id' => 1
             ];
-            \App\Models\Video::create($array);
+            $video = \App\Models\Video::create($array);
+            $video->skills()->sync(array_rand($ids , 2));
+            $video->tags()->sync(array_rand($ids , 3));
         }
     }
 }
