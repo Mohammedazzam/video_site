@@ -93,6 +93,7 @@ class HomeController extends Controller
 
     public function messageStore(\App\Http\Requests\FrontEnd\Messages\Store $request){
         Message::create($request->all());
+        alert()->success('Yoy Message Have Been Saved, We Will Call You 24 Hour', 'Done');
         return redirect()->route('frontend.landing');
     }
 
